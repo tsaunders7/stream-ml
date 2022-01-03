@@ -36,8 +36,7 @@ def main():
         ax.scatter([1, 2, 3], [1, 2, 3])
         if 'Confusion Matrix' in metrics_list:
             st.subheader("Confusion Matrix")
-            plot_confusion_matrix(model, x_test, y_test, display_labels=class_names)
-            st.pyplot(fig)
+            st.pyplot(plot_confusion_matrix(model, x_test, y_test, display_labels=class_names))
 
         if 'ROC Curve' in metrics_list:
             st.subheader("ROC Curve")

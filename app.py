@@ -31,20 +31,22 @@ def main():
         return x_train, x_test, y_train, y_test
     
     def plot_metrics(metrics_list):
+        fig, ax = plt.subplots()
+        ax.scatter([1, 2, 3], [1, 2, 3])
         if 'Confusion Matrix' in metrics_list:
             st.subheader("Confusion Matrix")
             plot_confusion_matrix(model, x_test, y_test, display_labels=class_names)
-            st.pyplot()
+            st.pyplot(fig)
 
         if 'ROC Curve' in metrics_list:
             st.subheader("ROC Curve")
             plot_roc_curve(model, x_test, y_test)
-            st.pyplot()
+            st.pyplot(fig)
         
         if 'Precision-Recall Curve' in metrics_list:
             st.subheader('Precision-Recall Curve')
             plot_precision_recall_curve(model, x_test, y_test)
-            st.pyplot()
+            st.pyplot(fig)
 
     df = load_data()
     class_names = ['edible', 'poisonous']
